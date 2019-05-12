@@ -1,0 +1,13 @@
+* 18 * * * /bin/mkdir /home/celiachintara/SISOP/fp/haha 
+
+#* 18 * * * /bin/touch /home/celiachintara/SISOP/fp/haha.c 
+
+#* 18 * * * /bin/mv huhu.c hihi.c
+
+#* 18 * * * /bin/mv /home/celiachintara/SISOP/fp/haha.c /home/celiachintara/SISOP
+
+#* 18 * * * /bin/cp /home/celiachintara/SISOP/fp/haha.c /home/celiachintara/SISOP/fp/huhu.c
+
+#* 18 * * * /bin/rm /home/celiachintara/SISOP/fp/hahahihi
+
+#* 18 * * * /bin/bash test.sh >> hasil.txt
