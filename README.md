@@ -286,27 +286,27 @@ for(int c=0 ; c<l_char_timer ; c++)
 ```
 - Thread dibuat di dalam daemon.
 ```
-while(1) {
-    
-    int i=0;
-	int err;
-	while(i<1) 
-	{
-		err=pthread_create(&(tid[i]),NULL,&config ,NULL); //buat thread
-		if(err!=0) 
+	while(1) {
+
+	    int i=0;
+		int err;
+		while(i<1) 
 		{
-		
+			err=pthread_create(&(tid[i]),NULL,&config ,NULL); //buat thread
+			if(err!=0) 
+			{
+
+			}
+			else
+			{
+				printf("\n create thread success\n");
+			}
+			i++;
 		}
-		else
-		{
-			printf("\n create thread success\n");
-		}
-		i++;
-	}
-	pthread_join(tid[0],NULL);
-	exit(0);
+		pthread_join(tid[0],NULL);
+		exit(0);
 
 
-    sleep(30);
-  }
+	    sleep(30);
+	  }
 ```  
