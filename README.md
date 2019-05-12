@@ -1,9 +1,8 @@
 # FP_SISOP19_C16
 
-## Soal
 Buatlah program C yang menyerupai crontab menggunakan daemon dan thread. Ada sebuah file crontab.data untuk menyimpan config dari crontab. Setiap ada perubahan file tersebut maka secara otomatis program menjalankan config yang sesuai dengan perubahan tersebut tanpa perlu diberhentikan. Config hanya sebatas * dan 0-9 (tidak perlu /,- dan yang lainnya)
 
-## Jawaban
+Jawab :
 
 - Untuk membaca file `crontab.data ` , maka kami menggunakan sintaks dibawah ini :
 ```
@@ -52,7 +51,7 @@ Buatlah program C yang menyerupai crontab menggunakan daemon dan thread. Ada seb
         
 	    command[j][i]='\0';
 ```
-- Cacah tiap command dalam crontab menjadi atomik.
+- Cacah waktu real time menjadi atomik.
 ```
 	    for(k=0;k<j;k++)
 	    {
@@ -71,7 +70,7 @@ Buatlah program C yang menyerupai crontab menggunakan daemon dan thread. Ada seb
 			sprintf(mon, "%02d", mo ); 
 			sprintf(namahari, "%02d", nh); 
 ```
-- Sintaks dibawah berfungsi untuk memeriksa apabila input tiap command subcron adalah bagian dari crontabnya (subcron = 0 untuk menit, subcron = 1 untuk jam, dst).
+- Sintaks dibawah berfungsi untuk mengelompokkan isi dari variable timer[] sesuai posisinya masing-masing. (Misal : subcron = 0 untuk menit, subcron = 1 untuk jam, dst).
 ```
 for(int c=0 ; c<l_char_timer ; c++)
 			{
@@ -268,13 +267,13 @@ for(int c=0 ; c<l_char_timer ; c++)
 			        }
 	    		}
 ```
-- Lalu, tiap-tiap elemen subcron akan melalui pengecekan lewat perbandingan antar tiap elemen dengan waktu asli.
+- Lalu, tiap-tiap elemen subcron akan melewati pengecekan lewat perbandingan antar tiap elemen dengan waktu asli(real time). Jika cocok, maka kemungkinan crontab akan berjalan.
 ```
             if(strcmp(menit,temp)==0){
 				        	tag++;
 						} 
 ```
-- Jika command tersebut berjalan, maka akan ter-print seperti dibawah ini :
+- Jika target nilai variable tag terpenuhi, maka variable command tersebut berjalan, dan akan ter-print seperti dibawah ini :
 ```
 	    if(tag >= 5)
 	    {
